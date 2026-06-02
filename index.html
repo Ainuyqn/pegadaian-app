@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pegadaian Digital - Solusi Keuangan Cepat & Aman</title>
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #006837; /* Hijau Pegadaian */
+            --secondary-color: #FDB913; /* Kuning/Emas */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f4f7f6;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 104, 55, 0.85), rgba(0, 104, 55, 0.7)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #e5a800;
+        }
+
+        /* --- LAYANAN SECTION --- */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Style baru untuk foto layanan */
+        .service-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        /* --- CARA KERJA SECTION --- */
+        .how-it-works {
+            background-color: white;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem;
+        }
+
+        .step-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--secondary-color);
+        }
+
+        /* --- KEUNGGULAN SECTION --- */
+        .features {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .features .section-title h2 {
+            color: white;
+        }
+
+        .features .section-title p {
+            color: #e0e0e0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .feature-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .feature-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- KONTAK & FOOTER --- */
+        footer {
+            background-color: #004d29;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            color: #999;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">💎 PEGADAIAN <span>DIGITAL</span></div>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#cara-kerja">Cara Kerja</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Menyelesaikan Masalah Tanpa Masalah</h1>
+            <p>Dapatkan dana tunai cepat, aman, dan terpercaya dengan jaminan barang berharga Anda. Bunga kompetitif dan proses yang mudah.</p>
+            <a href="#layanan" class="btn">Lihat Layanan Kami</a>
+        </div>
+    </section>
+
+    <!-- Layanan Section -->
+    <section class="section" id="layanan">
+        <div class="section-title">
+            <h2>Layanan Unggulan</h2>
+            <p>Berbagai pilihan solusi keuangan sesuai kebutuhan Anda</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=400&q=80" alt="Gadai Emas" class="service-img">
+                <h3>Gadai Emas</h3>
+                <p>Tukarkan perhiasan atau batangan emas Anda menjadi dana tunai cepat dengan penaksiran harga yang transparan dan adil.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=400&q=80" alt="Gadai Kendaraan" class="service-img">
+                <h3>Gadai Kendaraan</h3>
+                <p>Solusi dana darurat dengan jaminan BPKB motor atau mobil. Kendaraan tetap bisa Anda gunakan selama masa gadai.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=400&q=80" alt="Arrum Haji" class="service-img">
+                <h3>Arrum Haji & Umrah</h3>
+                <p>Wujudkan impian ibadah ke Tanah Suci dengan pembiayaan khusus yang aman dan berjangka waktu fleksibel.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80" alt="Gadai Elektronik" class="service-img">
+                <h3>Gadai Elektronik</h3>
+                <p>Dana cepat untuk kebutuhan mendesak dengan jaminan laptop, smartphone, atau peralatan elektronik lainnya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Kerja Section -->
+    <section class="section how-it-works" id="cara-kerja">
+        <div class="section-title">
+            <h2>Cara Menggadai</h2>
+            <p>Proses mudah hanya dalam 3 langkah sederhana</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=200&q=80" alt="Bawa Barang" class="step-img">
+                <h3>1. Bawa Barang Jaminan</h3>
+                <p>Datang ke cabang terdekat atau ajukan secara online dengan membawa barang jaminan dan KTP asli.</p>
+            </div>
+            <div class="step">
+                <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=200&q=80" alt="Penaksiran" class="step-img">
+                <h3>2. Proses Penaksiran</h3>
+                <p>Barang Anda akan ditaksir oleh penaksir profesional untuk menentukan nilai pinjaman yang sesuai.</p>
+            </div>
+            <div class="step">
+                <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=200&q=80" alt="Terima Dana" class="step-img">
+                <h3>3. Terima Dana Tunai</h3>
+                <p>Setelah menyetujui nilai pinjaman, dana akan langsung cair ke rekening atau tunai di tempat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section class="section features" id="keunggulan">
+        <div class="section-title">
+            <h2>Mengapa Memilih Kami?</h2>
+            <p>Komitmen kami untuk memberikan pelayanan terbaik</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=150&q=80" alt="Aman" class="feature-img">
+                <h3>Aman & Terpercaya</h3>
+                <p>Barang jaminan disimpan di brankas berstandar keamanan tinggi dengan asuransi penuh.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=150&q=80" alt="Cepat" class="feature-img">
+                <h3>Proses Cepat</h3>
+                <p>Dana cair dalam hitungan menit setelah proses penaksiran dan persetujuan selesai.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=150&q=80" alt="Bunga Rendah" class="feature-img">
+                <h3>Bunga Rendah</h3>
+                <p>Suku bunga kompetitif dan transparan, tanpa biaya tersembunyi yang memberatkan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pegadaian Digital</h3>
+                <p>Menyediakan solusi keuangan inklusif bagi masyarakat Indonesia sejak tahun 1901. Milik Negara, Melayani Negeri.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <p>📍 Depok,Cirebon</p>
+                <p>📞 +62 838-0438-6120</p>
+                <p>✉️ ainuyqn001@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 08.00 - 16.00 WIB</p>
+                <p>Sabtu: 08.00 - 14.00 WIB</p>
+                <p>Minggu & Hari Libur: Tutup</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pegadaian Digital. Hak Cipta Dilindungi Undang-Undang.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Menu Mobile -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
